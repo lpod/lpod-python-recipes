@@ -1,0 +1,37 @@
+License of recipes
+==================
+
+The recipes are only submitted as educational material, not as effective
+useable code.
+
+The lpod-python recipes are licensed under an open source license, e.g. the
+Creative Common Attribution 3.0 (see below)
+
+Of course, you can use the proposed recipes as samples of code for actual
+software, with no need of paternity attribution.
+
+
+Authors:
+Luis Belmar-Letelier <luis@itaapy.com>
+Jerome Dumonteil <jerome.dumonteil@arsaperta.com> <jerome.dumonteil@itaapy.com>
+
+
+-------------------------------------------------------------------------------
+Attribution 3.0 Unported (CC BY 3.0)
+
+This license is acceptable for Free Cultural Works.
+You are free:
+
+    to Share Ñ to copy, distribute and transmit the work
+    to Remix Ñ to adapt the work
+    to make commercial use of the work
+
+Under the following conditions:
+
+    Attribution Ñ You must attribute the work in the manner specified by the
+    author or licensor (but not in any way that suggests that they endorse you
+    or your use of the work).
+
+http://creativecommons.org/licenses/by/3.0/
+
+-------------------------------------------------------------------------------

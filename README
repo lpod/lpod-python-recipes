@@ -1,0 +1,101 @@
+Lpod Python Recipes
+===================
+
+This package provides programming recipes for the use of the OpenDocument Format
+(ODF) OASIS standard (ISO/IEC 26300) with the Lpod library.
+
+
+You can use the proposed recipes as samples of code using OpenDocument Format.
+
+
+You need a recent version of the Lpod library to use these recipes, you can
+get it there :
+
+    https://github.com/lpod/lpod-python
+
+
+About the Lpod library, see :
+
+    http://lpod-project.org
+
+
+Last version of this package Lpod Python Recipes :
+
+    https://github.com/lpod/lpod-python-recipes
+
+
+A prior version of these recipes can be found there :
+
+    http://recipes.opendocsociety.org/libraries/lpod/python/1.0
+
+
+
+License
+-------
+
+See license.txt (CC BY 3.0)
+
+
+Content
+-------
+
+Howto directory : fast tutorial
+
+    How_do_I_write_Hello_World_in_a_presentation_document.py
+    How_do_I_write_Hello_World_in_a_spreadsheet_document.py
+    How_do_I_write_Hello_World_in_a_text_document.py
+    How_to_add_Not_Printable_annotations_to_a_document.py
+    How_to_add_a_Table_of_Content_TOC_to_a_document.py
+    How_to_add_a_list_to_a_text_document.py
+    How_to_add_a_paragraph_to_a_text_document.py
+    How_to_add_a_sublist_to_a_list.py
+    How_to_add_a_table_to_a_document.py
+    How_to_add_a_title_to_a_text_document.py
+    How_to_add_an_item_to_a_list.py
+    How_to_add_footnote_to_a_text_document.py
+    How_to_apply_a_style_to_a_paragraph.py
+    How_to_copy_some_style_from_another_document.py
+    How_to_insert_a_new_item_within_a_list.py
+    How_to_use_lpod_in_command_line_scripts_lpod-show.py
+
+Examples directory : more elaborate examples
+
+    accessibility_check_on_a_document.py
+    accessibility_insert_title_description_cli.py
+    accessing_a_list_of_elements.py
+    accessing_a_single_element.py
+    accessing_other_element_from_element_like_list.py
+    add_logo_on_presentation.py
+    add_text_span_styles.py
+    change_the_logo_in_many_ODF_files_cli.py
+    concatenate_presentations_cli.py
+    copy_style_from_another_document.py
+    create_a_basic_drawing.py
+    create_a_basic_text_document.py
+    create_a_basic_text_document_with_a_TOC.py
+    create_a_basic_text_document_with_a_list.py
+    create_a_basic_text_document_with_annotations.py
+    create_a_basic_text_document_with_footnotes.py
+    create_a_basic_text_document_with_list_and_sublists.py
+    create_a_text_document_with_tables_in_it.py
+    create_color_chart_in_spreadsheet.py
+    extract_a_sub_table_from_some_big_table.py
+    extract_and_reorder_slides.py
+    get_pictures_from_document_odt.py
+    get_text_content_from_odt_file.py
+    introspecting_elements.py
+    make_a_basic_spreadsheet.py
+    make_a_presentation_from_pictures_of_a_text_document.py
+    make_a_presentation_from_text_with_different_styles.py
+    make_presentation_from_images_with_parameters_cli.py
+    move_link_to_footnote.py
+    remove_http_links.py
+    remove_span_styles.py
+    retrieve_all_pictures_from_ODF_files_cli.py
+    show_meta_data.py
+    spreadsheet_with_words_frequency_from_a_text.py
+    transpose_table.py
+
+
+You can find some more scripting examples in the script directory of the
+lpod-python source code.

@@ -4,6 +4,7 @@
 """
 Remove the links (the text:a tag), keeping the inner text.
 """
+import os
 import sys
 
 # Import from lpod
@@ -92,4 +93,9 @@ if __name__=="__main__":
 
     print "'text:a' occurrences after removal:", len(body.get_links())
 
-    document.save(target="my_" + source, pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = os.path.join('test_output', "my_" + source)
+
+    document.save(target=output, pretty=True)

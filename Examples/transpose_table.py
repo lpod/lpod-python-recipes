@@ -6,6 +6,8 @@ Transpose a table. Create a spreadsheet table (example: 50 rows and 20 columns),
 create a new table in a separate sheet where the columns and rows are now
 swapped (e.g. 20 rows and 50 columns).
 """
+import os
+
 # Import from lpod
 from lpod.document import odf_new_document
 from lpod.table import odf_create_table, odf_create_row
@@ -47,4 +49,9 @@ if __name__=="__main__":
 
     print "Size of symetric table 3 :", table3.get_size()
 
-    spreadsheet.save(target="my_transposed_spreadsheet.ods", pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = os.path.join('test_output', "my_transposed_spreadsheet.ods")
+
+    spreadsheet.save(target=output, pretty=True)

@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 # ok lpod 1.0
 # Import from lpod
+import os
 from lpod.document import odf_get_document
 
 # ODF export of Wikipedia article Hitchhiker's Guide to the Galaxy (CC-By-SA)
@@ -27,8 +28,13 @@ document.delete_styles()
 # And now the actual style change:
 document.merge_styles_from(style_document)
 
+
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
+
 # Saving the document (with a different name)
-document.save(target="my_collection_styled.odt", pretty=True)
+document.save(target=os.path.join('test_output', "my_collection_styled.odt"),
+              pretty=True)
 
 ################################################################################
 # For more advanced version, see the lpod-style.py script in the lpod library  #

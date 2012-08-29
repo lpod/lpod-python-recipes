@@ -5,10 +5,15 @@ just for testing
 """
 import os
 
-command = ' python ./accessibility_insert_title_description_cli.py \
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
+
+
+command = ' cp -af test_title_description test_output ; \
+    python ./accessibility_insert_title_description_cli.py \
     -i test_title_description/newlogo.png \
     -t "New Logo" \
     -d "new logo with blue background" \
-    test_title_description/ '
+    test_output/test_title_description/ '
 
 os.system(command)

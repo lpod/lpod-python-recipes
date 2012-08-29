@@ -4,6 +4,8 @@
 """
 Create a spreadsheet with one table.
 """
+import os
+
 # Import from lpod
 from lpod.document import odf_new_document
 from lpod.table import odf_create_table
@@ -49,4 +51,9 @@ if __name__=="__main__":
     print "Content of the table:"
     print table.to_csv()
 
-    document.save(target="my_basic_spreadsheet.ods", pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = os.path.join('test_output', "my_basic_spreadsheet.ods")
+
+    document.save(target=output, pretty=True)

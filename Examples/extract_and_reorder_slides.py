@@ -5,6 +5,7 @@
 Create a new presentation from a previous one by extrating some slides, in a
 different order.
 """
+import os
 import sys
 # Import from lpod
 from lpod.document import odf_get_document, odf_new_document
@@ -45,4 +46,9 @@ if __name__=="__main__":
 
         body_extracted.append(slide)
 
-    extracted.save(target=output_filename, pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = os.path.join('test_output', output_filename)
+
+    extracted.save(target=output, pretty=True)

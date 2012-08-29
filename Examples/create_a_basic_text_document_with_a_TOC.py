@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # ok lpod 1.0
+import os
 
 # Uncommented parts are explained in: create_a_basic_text_document.py
 
@@ -46,5 +47,10 @@ for p in range(3) :
 # the reader will need to "update the table of content" later.
 toc.fill()
 
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
+
+output = os.path.join('test_output', 'my_document_with_toc.odt')
+
 # And finally save the document.
-my_document.save(target='my_document_with_toc.odt', pretty=True)
+my_document.save(target=output, pretty=True)

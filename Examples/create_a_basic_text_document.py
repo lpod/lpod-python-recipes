@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # ok lpod 1.0
+import os
 
 # Some utilities
 import urllib
@@ -46,9 +47,15 @@ for p in range(3):
     paragraph = odf_create_paragraph(random_text(10))
     body.append(paragraph)
 
+
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
+
+output = os.path.join('test_output', 'my_basic_text_document.odt')
+
 # 3 - Saving Document
 # Last but not least, don’t lose our hard work:
-my_document.save(target='my_basic_text_document.odt', pretty=True)
+my_document.save(target=output, pretty=True)
 # The pretty parameter asks for writing an indented serialized XML.
 # The cost in space in negligible and greatly helps debugging,
 # so don’t hesitate to use it.

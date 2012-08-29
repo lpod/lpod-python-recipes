@@ -6,6 +6,7 @@ Open a .odt file with pictures in it, find and analyse all the images, create a
 new .odp presentation, display all the pictures in the presentation, one image
 per frame.
 """
+import os
 
 from urllib2 import urlopen
 from urlparse import urlsplit
@@ -132,7 +133,13 @@ for image in images_source:
     presentation_output.set_part(uri, doc_source.get_part(uri))
 
 # Finally save the result
-presentation_output.save(target=output_filename, pretty=True)
+
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
+
+output = os.path.join('test_output', output_filename)
+
+presentation_output.save(target=output, pretty=True)
 
 expected_result = """
 image Pictures/12918371211855030272.jpe , size : 333x386

@@ -5,6 +5,8 @@
 Create a table of 1000 lines and 100 columns, extract a sub table of 100 lines
 26 columns, save the result in a spreadsheet document.
 """
+import os
+
 # Import from lpod
 from lpod.document import odf_new_document
 from lpod.table import odf_create_table, odf_create_row, odf_create_cell
@@ -51,13 +53,18 @@ if __name__=="__main__":
 
     # other method
     table2 = odf_create_table(u"Extract 2")
-    cells = table.get_cells( coord=(50, 800, 75, 899) , flat=False)
+    cells = table.get_cells( coord=(50, 800, 75, 899) )
     table2.set_cells(coord=(2, 3), cells=cells)
     body.append(table2)
 
     print "Size of extracted table 2 :", table2.get_size()
 
-    spreadsheet.save(target="my_big_spreadsheet.ods", pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = os.path.join('test_output', "my_big_spreadsheet.ods")
+
+    spreadsheet.save(target=output, pretty=True)
 
     expected_result = """
 Size of Big Table : (100, 1000)

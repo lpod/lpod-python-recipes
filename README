@@ -13,6 +13,9 @@ get it there :
 
     https://github.com/lpod/lpod-python
 
+    This version of recipes uses the 'current' branch of lpod-python, for
+    older versions of lpod-python, try the legacy version of recipes.
+
 
 About the Lpod library, see :
 

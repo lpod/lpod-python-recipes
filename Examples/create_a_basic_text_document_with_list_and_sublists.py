@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # ok lpod 1.0
+import os
 
 # Uncommented parts are explained in : create_a_basic_document_with_a_list.py
 
@@ -45,8 +46,14 @@ my_list.insert_item(u'Zaphod', before=marvin)
 #Or after:
 my_list.insert_item(u'and many others', after=marvin)
 
+
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
+
+output = os.path.join('test_output', 'my_document_with_sublist.odt')
+
 # And finally save the document.
-my_document.save(target='my_document_with_sublist.odt', pretty=True)
+my_document.save(target=output, pretty=True)
 
 # See the result:
 print my_document.get_formatted_text()

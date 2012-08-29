@@ -5,6 +5,7 @@ Each line of the text becomes a slide of the presentation, we change of style
 depending on the length of text line.
 """
 import sys
+import os
 
 # Import from lpod
 from lpod.document import odf_new_document
@@ -101,4 +102,10 @@ for blurb in lst:
     page.append(text_frame)
     presentation_body.append(page)
 
-presentation.save(target=output_filename, pretty=True)
+
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
+
+output = os.path.join('test_output', output_filename)
+
+presentation.save(target=output, pretty=True)

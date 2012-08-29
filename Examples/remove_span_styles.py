@@ -4,6 +4,7 @@
 """
 Remove span styles (like some words in bold in a paragraph), except in titles.
 """
+import os
 import sys
 
 # Import from lpod
@@ -93,4 +94,9 @@ if __name__=="__main__":
 
     print "'text:span' occurrences after removal:", len(body.get_spans())
 
-    document.save(target="my_RS_" + source , pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = os.path.join('test_output', "my_RS_" + source)
+
+    document.save(target=output , pretty=True)

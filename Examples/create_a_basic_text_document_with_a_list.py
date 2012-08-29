@@ -2,6 +2,8 @@
 # -*- coding: UTF-8 -*-
 # ok lpod 1.0
 
+import os
+
 # Uncommented parts are explained in : create_a_basic_text_document.py
 
 # Imports from lpod
@@ -26,8 +28,14 @@ body.append(my_list)
 item = odf_create_list_item(u'Marvin')
 my_list.append_item(item)
 
+
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
+
+output = os.path.join('test_output', 'my_document_with_list.odt')
+
 # And finally save the document.
-my_document.save(target='my_document_with_list.odt', pretty=True)
+my_document.save(target=output, pretty=True)
 
 # it should contain only :
 print my_document.get_formatted_text()

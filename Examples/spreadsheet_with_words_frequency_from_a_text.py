@@ -5,6 +5,7 @@
 Load an ODF text, store the frequency of words in a spreadsheet, make requests
 on the table, by regex or value.
 """
+import os
 import sys
 # Import from lpod
 from lpod.document import odf_new_document
@@ -81,7 +82,12 @@ if __name__=="__main__":
     print "list of words of frequency 15:", ", ".join(found)
 
 
-    spreadsheet.save(target="my_frequency_spreadsheet.ods", pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = os.path.join('test_output', "my_frequency_spreadsheet.ods")
+
+    spreadsheet.save(target=output, pretty=True)
 
     expected_result = """
 Word frequency analysis of collection2.odt

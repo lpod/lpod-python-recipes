@@ -33,7 +33,10 @@ print
 
 # we use the get_part function from lpod to get the actual content
 # of the image, to copy the images out of the .odt file:
-new_dir = "my_document_pictures"
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
+
+new_dir = os.path.join('test_output', "my_document_pictures")
 try:
     os.mkdir(new_dir)
 except OSError:

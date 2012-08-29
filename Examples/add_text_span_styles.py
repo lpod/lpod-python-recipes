@@ -50,4 +50,8 @@ if __name__=="__main__":
             # apply style to each text matching with the regex of some word
             paragraph.set_span(name, regex=word)
 
-    document.save(target="my_span_styled_" + source, pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = "my_span_styled_" + source
+    document.save( target=os.path.join('test_output', output),  pretty=True)

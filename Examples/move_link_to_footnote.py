@@ -6,6 +6,7 @@ Remove all links from a document, transforming each link information (URL, text)
 into a footnote. Of course, removing links already inside notes, just keeping
 plain text URL. (Side note: most office suite dislike notes in notes)
 """
+import os
 import sys
 
 # Import from lpod
@@ -119,4 +120,9 @@ if __name__=="__main__":
     print "links occurrences:", len(body.get_links())
     print "footnotes occurences:", len(body.get_notes())
 
-    document.save(target="my_LN_" + source, pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = os.path.join('test_output', "my_LN_" + source)
+
+    document.save(target=output, pretty=True)

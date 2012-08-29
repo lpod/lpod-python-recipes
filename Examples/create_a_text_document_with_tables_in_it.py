@@ -5,6 +5,8 @@
 Build a basic commercial document, with numerical values displayed in both the
 text and in a table.
 """
+import os
+
 # Import from lpod
 from lpod.document import odf_new_document
 from lpod.heading import odf_create_heading
@@ -131,4 +133,9 @@ if __name__=="__main__":
         row.set_cell(x=cell.x, cell=cell)
     table.set_row(row.y, row)
 
-    commercial.save(target="my_commercial.odt", pretty=True)
+    if not os.path.exists('test_output'):
+        os.mkdir('test_output')
+
+    output = os.path.join('test_output', "my_commercial.odt")
+
+    commercial.save(target=output, pretty=True)

@@ -4,6 +4,7 @@
 """
 Insert a circle and a lot of lines (a fractal) in a text document.
 """
+import os
 import sys
 import cmath
 from math import sqrt
@@ -87,5 +88,9 @@ if __name__=="__main__":
         line = odf_create_line(p1 = v.in_cm(0), p2 = v.in_cm(1))
         para.append(line)
 
-document.save(target='my_Koch_fractal.odt', pretty=True)
+if not os.path.exists('test_output'):
+    os.mkdir('test_output')
 
+output = os.path.join('test_output', 'my_Koch_fractal.odt')
+
+document.save(target=output, pretty=True)

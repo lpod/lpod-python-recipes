@@ -4,7 +4,6 @@
 Create some color chart in a spreadsheet using cells styles.
 (taken from the LPOD library test cases)
 """
-
 # Import from the Standard Library
 from os import mkdir
 from os.path import join, exists
@@ -69,4 +68,9 @@ for y in xrange(0, 256, 8):
 
 body.append(table)
 
-document.save("my_color_chart.ods", pretty=True)
+if not exists('test_output'):
+    mkdir('test_output')
+
+output = join('test_output', "my_color_chart.ods")
+
+document.save(output, pretty=True)

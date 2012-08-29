@@ -70,7 +70,7 @@ if __name__=="__main__":
     regex_query = "^the"
     print "Words corresponding to the regex:", regex_query
     result = table.get_rows(content = regex_query )
-    for position, row in result:
+    for row in result:
         print "word: %-20s  occurences: %s" % (row.get_value(0), row.get_value(1))
 
     # list of words of frequecy = 15

@@ -37,13 +37,14 @@ if __name__=="__main__":
         table2.set_row_values(x, values)
     body.append(table2)
 
+    print "Size of symetric table 2 :", table2.get_size()
+
     # a more simple solution with the table.transpose() method :
     table3 = table.clone()
     table3.transpose()
     table3.set_name(u"Transpose")
     body.append(table3)
 
-    print "Size of symetric table 2 :", table2.get_size()
     print "Size of symetric table 3 :", table3.get_size()
 
     spreadsheet.save(target="my_transposed_spreadsheet.ods", pretty=True)

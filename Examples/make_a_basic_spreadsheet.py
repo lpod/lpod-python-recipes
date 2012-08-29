@@ -27,10 +27,10 @@ if __name__=="__main__":
     print "rows in the table (3+2):", len(table.get_rows())
 
     #  A row contains cells
-    for index, row in table.get_rows():
-        print "nb of cells ", index,  len(row.get_cells())
+    for row in table.get_rows():
+        print "row, nb of cells ", row.y,  len(row.get_cells())
 
-    last_row=table.get_row(-1)
+    last_row = table.get_row(-1)
     print "nb of cells of the last row:", len(last_row.get_cells())
 
     # cell can have different kind of values

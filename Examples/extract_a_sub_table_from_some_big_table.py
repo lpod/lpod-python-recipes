@@ -38,20 +38,29 @@ if __name__=="__main__":
     print "Size of Big Table :", table.get_size()
 
     # now extract 100 rows of 26 columns :
-    table2 = odf_create_table(u"Extract")
+    table1 = odf_create_table(u"Extract 1")
     for r in range(800,900):
         row = table.get_row(r)
         values = [ row.get_value(x) for x in xrange(50,76) ]
         row2 = odf_create_row()
         row2.set_values(values)
-        table2.append(row2)
+        table1.append(row2)
+    body.append(table1)
+
+    print "Size of extracted table 1 :", table1.get_size()
+
+    # other method
+    table2 = odf_create_table(u"Extract 2")
+    cells = table.get_cells( coord=(50, 800, 75, 899) , flat=False)
+    table2.set_cells(coord=(2, 3), cells=cells)
     body.append(table2)
 
-    print "Size of extracted table :", table2.get_size()
+    print "Size of extracted table 2 :", table2.get_size()
 
     spreadsheet.save(target="my_big_spreadsheet.ods", pretty=True)
 
     expected_result = """
 Size of Big Table : (100, 1000)
-Size of extracted table : (26, 100)
+Size of extracted table 1 : (26, 100)
+Size of extracted table 2 : (26, 100)
 """

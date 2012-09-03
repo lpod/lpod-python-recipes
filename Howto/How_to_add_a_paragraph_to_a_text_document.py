@@ -7,4 +7,4 @@ body = document.get_body()
 
 # create a new paragraph with some content :
 paragraph = odf_create_paragraph(u"Hello_World")
-body.append_element(paragraph)
+body.append(paragraph)

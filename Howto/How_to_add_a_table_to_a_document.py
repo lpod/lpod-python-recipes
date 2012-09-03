@@ -15,4 +15,4 @@ body.append(odf_create_paragraph(u"A 3x3 table:"))
 
 from lpod.table import odf_create_table
 table = odf_create_table(u"Table 1", width=3, height=3)
-body.append_element(table)
+body.append(table)

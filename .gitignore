@@ -6,6 +6,7 @@ dist
 test/trash
 *.swp
 *.py[co]
+Examples/test_output
 
 # Packages
 *.egg

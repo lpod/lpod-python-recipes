@@ -91,6 +91,7 @@ Examples directory : more elaborate examples
     make_a_presentation_from_pictures_of_a_text_document.py
     make_a_presentation_from_text_with_different_styles.py
     make_presentation_from_images_with_parameters_cli.py
+    make_spreadsheet_with_named_ranges.py
     move_link_to_footnote.py
     remove_http_links.py
     remove_span_styles.py

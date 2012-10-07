@@ -105,19 +105,14 @@ fo:border-bottom="0.06pt solid #000000"/>
 </style:style>""")
 
 
-# make document,
-document = odf_new_document('text')
-# remove default styles
-document.delete_styles()
-# add our styles
-document.insert_style(_style_font_1, default = True)
-document.insert_style(_style_font_2, default = True)
-document.insert_style(_style_font_3, default = True)
-document.insert_style(_style_page, automatic = True)
-document.insert_style(_style_master)
-document.insert_style(_style_footer)
-document.insert_style(_style_description)
-document.insert_style(_style_small_serif)
+# some lpod generated style (for bold Span)
+_style_bold = odf_create_style (
+        'text',
+        name = u'bolder',
+        bold = True
+    )
+
+
 
 # Some plain utf-8 text :
 text_1 = """\
@@ -139,6 +134,23 @@ Duis semper. \n\tDuis arcu massa, \n\t\tscelerisque vitae, \n
 Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.
 Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed"""
 
+
+
+# make document,
+document = odf_new_document('text')
+# remove default styles
+document.delete_styles()
+# add our styles
+document.insert_style(_style_font_1, default = True)
+document.insert_style(_style_font_2, default = True)
+document.insert_style(_style_font_3, default = True)
+document.insert_style(_style_page, automatic = True)
+document.insert_style(_style_master)
+document.insert_style(_style_footer)
+document.insert_style(_style_description)
+document.insert_style(_style_small_serif)
+document.insert_style(_style_bold)
+
 body = document.get_body()
 
 paragraph = odf_create_paragraph(u'', style = u'description')
@@ -158,6 +170,14 @@ body.append(paragraph)
 
 paragraph = odf_create_paragraph(style = u'description')
 paragraph.append_plain_text(text_3)     # should autodetect utf-8
+
+# span offset become complex after inserting <CR> and <TAB> in a text
+paragraph.set_span(u"bolder", offset=5, length=6)   # find TEXT position 5 : 6
+paragraph.set_span(u"bolder", offset=18, length=4)  # find TEXT position 18 : 4
+paragraph.set_span(u"bolder", offset=49)    # find TEXT position 18 to the end
+                                            # of the text bloc
+paragraph.set_span(u"bolder", regex=u'Praes\w+\s\w+') # regex: Praes. + next word
+
 body.append(paragraph)
 
 
@@ -165,4 +185,4 @@ if not os.path.exists('test_output'):
     os.mkdir('test_output')
 output = os.path.join('test_output', 'my_styled_plain_text_document.odt')
 
-document.save(target=output, pretty=True, packaging='folder')
+document.save(target=output, pretty=True)

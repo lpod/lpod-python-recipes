@@ -80,6 +80,7 @@ Examples directory : more elaborate examples
     create_a_basic_text_document_with_annotations.py
     create_a_basic_text_document_with_footnotes.py
     create_a_basic_text_document_with_list_and_sublists.py
+    create_a_text_document_from_plain_text_with_layout.py
     create_a_text_document_with_tables_in_it.py
     create_color_chart_in_spreadsheet.py
     extract_a_sub_table_from_some_big_table.py

@@ -91,9 +91,16 @@ if __name__=="__main__":
     cols = table.get_width()
     column = cols - 1
 
+    # add merged empty row
     row = odf_create_row()
-    row.set_value(column - 1, u"Total")
-    total = reduce(lambda x,y:x+y, table.get_column_values(column)[1:])
+    row_number += 1
+    table.set_row(row_number, row)
+    table.set_span((0, row_number, 3, row_number))
+
+    # make total
+    row = odf_create_row()
+    row.set_value(column - 1, u"Total:")
+    total = sum(table.get_column_values(column)[1:-1])
     cell = odf_create_cell()
     cell.set_value(total, text = u"%.2f €" % total,
                                 currency = u"EUR", cell_type="float")
@@ -101,8 +108,12 @@ if __name__=="__main__":
     row_number += 1
     table.set_row(row_number, row)
 
+
+    # let merge some cells
+    table.set_span((column -3, row_number, column -1, row_number), merge = True)
+
     row = odf_create_row()
-    row.set_value(column - 1, u"Total with tax")
+    row.set_value(column - 1, u"Total with tax:")
     total *= (1 + tax_rate)
     cell = odf_create_cell()
     cell.set_value(total, text = u"%.2f €" % total,
@@ -110,6 +121,8 @@ if __name__=="__main__":
     row.set_cell(column, cell)
     row_number += 1
     table.set_row(row_number, row)
+    # let merge some cells
+    table.set_span((column -3, row_number, column -1, row_number), merge = True)
 
     # Let's add some style on first row
     border = make_table_cell_border_string(

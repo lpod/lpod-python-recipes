@@ -21,10 +21,10 @@ if __name__=="__main__":
     table.set_value("A11", "Total:")
 
     # lets define a named range for the 10 values :
-    range = "B1:B10"
+    crange = "B1:B10"
     name = "squares_values"
     table_name = table.get_name()
-    table.set_named_range(name, range, table_name)
+    table.set_named_range(name, crange, table_name)
 
     # we can define a single cell range, using notation "B11" or (1, 10) :
     table.set_named_range('total', (1,10), table_name)
@@ -44,7 +44,7 @@ if __name__=="__main__":
     table2.set_value('A1', "name:")
     table2.set_value('B1', named_range1.name)
     table2.set_value('A2', "range:")
-    table2.set_value('B2', str( named_range1.range ))
+    table2.set_value('B2', str( named_range1.crange ))
     table2.set_value('A3', "from table:")
     table2.set_value('B3', named_range1.table_name)
     table2.set_value('A4', "content:")
@@ -54,7 +54,7 @@ if __name__=="__main__":
     table2.set_value('D1', "name:")
     table2.set_value('E1', named_range2.name)
     table2.set_value('D2', "range:")
-    table2.set_value('E2', str( named_range2.range ))
+    table2.set_value('E2', str( named_range2.crange ))
     table2.set_value('D3', "from table:")
     table2.set_value('E3', named_range2.table_name)
     table2.set_value('D4', "content:")
